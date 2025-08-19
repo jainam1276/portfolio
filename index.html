@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jainam S</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest"></script> <!-- Lucide icons -->
+<style type="text/tailwindcss">
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #000;
+        color: #fff;
+        overflow: hidden;
+    }
+    /* Keyframes for animated background */
+    @keyframes bgMove {
+        0% {
+            transform: scale(1) rotate(0deg) translate(0, 0);
+        }
+        50% {
+            transform: scale(1) rotate(0deg) translate(270px, 0px);
+        }
+        75% {
+            transform: scale(1) rotate(0deg) translate(200px, 0px);
+        }
+        100% {
+            transform: scale(1) rotate(0deg) translate(0, 0);
+        }
+    }
+    .animated-bg {
+        animation: bgMove 15s ease-in-out infinite;
+    }
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+<header class="fixed top-0 left-0 right-0 p-8 flex justify-between items-center z-10">
+    <div>
+        <a href="index.html" class="hover:text-cyan-200 transition-colors">
+            <h1 class="text-2xl font-bold tracking-widest">Jainam S</h1>
+        </a>
+    </div>
+    <nav class="hidden md:flex items-center space-x-12">
+        <a class="text-sm font-semibold tracking-wider hover:text-cyan-200 transition-colors" href="projects.html">PROJECTS</a>
+        <a class="text-sm font-semibold tracking-wider hover:text-cyan-200 transition-colors" href="about.html">ABOUT</a>
+        <a class="text-sm font-semibold tracking-wider hover:text-cyan-200 transition-colors" href="contact.html">CONTACT (InfinityValves)</a>
+    </nav>
+    <!-- Social Hub Toggle -->
+    <button id="socialToggle" class="text-4xl font-light z-20">+</button>
+</header>
+
+<div class="fixed left-8 top-1/2 -translate-y-1/2 z-10 flex flex-col items-start space-y-2">
+    <span class="text-sm tracking-widest uppercase text-gray-300">My self</span>
+    <span class="text-4xl">J A I N A M</span>
+    <span class="text-sm tracking-widest uppercase text-gray-300">
+        Founder <a href="https://infinityvalves.onrender.com" 
+                   target="_blank" 
+                   class="text-cyan-400 hover:underline">@InfinityValves</a>
+    </span>
+</div>
+
+<main class="flex-grow flex items-center justify-center relative">
+    <div class="absolute inset-0 overflow-hidden">
+        <img alt="Abstract 3D rendering of black glossy rings" 
+             class="w-full h-full object-cover opacity-70 animated-bg" 
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAToFHABgPK3FsYheQs9C4LTSYN1huk3c0L7Mgntng2ofYsDT8FHRhquweP5uMNBWKW55NngmkwHSeWNNOJhTZvj11Gf8_jN9HcblR0OJNjIDIDtClUlCoz1TD0hHkzSuSGUWyouX30dL4dRBV0PmWXtdbyFCJwTdf_OFqJdAu29VWJs75kXRpM2VH3powqIdubUlOHM8RDqCLO_-EQHgbnNE68Muvc7FoP8YjpFTXjUxmSYdKzP2NECr74k-hxWY8edU6X40XX7g3c"/>
+    </div>
+</main>
+
+<!-- Social Hub Modal -->
+<div id="socialHub" class="fixed inset-0 bg-black/70 backdrop-blur-md hidden flex items-center justify-center z-10">
+  <div class="bg-gray rounded-2xl p-8 shadow-2xl text-center space-y-6 max-w-sm w-full">
+    <h2 class="text-xl font-bold tracking-wide">Connect with me</h2>
+    <div class="flex justify-center space-x-6">
+      <a href="https://github.com/jainam1276" target="_blank" class="hover:text-cyan-400 transition-colors">
+        <i data-lucide="github" class="w-8 h-8"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/jainam-s-05547b261/" target="_blank" class="hover:text-cyan-400 transition-colors">
+        <i data-lucide="linkedin" class="w-8 h-8"></i>
+      </a>
+      <a href="mailto:jainamsuthar76@gmail.com" class="hover:text-cyan-400 transition-colors">
+        <i data-lucide="mail" class="w-8 h-8"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="fixed bottom-8 right-8 z-10">
+    <a href="let.html">
+        <button class="border border-white rounded-full px-6 py-2 text-sm font-semibold hover:bg-white hover:text-black transition-colors">
+            LET'S TALK
+        </button>
+    </a>
+</footer>
+
+<script>
+    lucide.createIcons(); // initialize Lucide icons
+
+    const socialToggle = document.getElementById('socialToggle');
+    const socialHub = document.getElementById('socialHub');
+
+    // Toggle open/close when clicking +
+    socialToggle.addEventListener('click', () => {
+        const isOpen = !socialHub.classList.contains('hidden');
+        if (isOpen) {
+            socialHub.classList.add('hidden');
+            socialToggle.textContent = '+'; // reset to plus
+        } else {
+            socialHub.classList.remove('hidden');
+            socialToggle.textContent = '×'; // change to close
+        }
+    });
+
+    // Close modal when clicking outside the inner box
+    socialHub.addEventListener('click', (e) => {
+        if (e.target === socialHub) {
+            socialHub.classList.add('hidden');
+            socialToggle.textContent = '+';
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
